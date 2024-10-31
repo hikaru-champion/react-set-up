@@ -203,15 +203,38 @@ git commit時にりんたーを強制実行させるためのツール
 $ npm install -D husky lint-staged
 ```
 
+huskyの初期設定を以下のコマンドで実行する。
 ```
-npx husky init
+$ npx husky init
 ```
 
+.husky/pre-commitファイルが自動生成されるので以下を設定する
+```
+lint-staged
+npm test
+```
+
+package.jsonに以下の設定を追加する
+```json
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  }
+```
 
 # Tailwindcss
+[公式ドキュメント](https://tailwindcss.com/)を参照
+以下のコマンドでインストール
+```
+$ npm install -D tailwindcss postcss autoprefixer
+```
 
-# shadon/ui
+以下のコマンドで初期化を実施
+```
+$ npx tailwindcss init -p
+```
 
-# storybook
-
-# GitHub Actions
+# shadcn/ui
+[公式ドキュメント](https://ui.shadcn.com/docs/installation/vite)を参照
